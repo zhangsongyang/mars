@@ -11,5 +11,7 @@
 <body>
 	
 <h1>hello word````</h1>
+time: ${requestScope.time }
+<br><br>
 </body>
 </html>
