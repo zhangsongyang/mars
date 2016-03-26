@@ -13,5 +13,29 @@
 <h1>hello word````</h1>
 time: ${requestScope.time }
 <br><br>
+
+names: ${requestScope.names }
+<br><br>
+
+namesaa: ${requestScope.namesa }
+<br><br>
+
+
+request user username: ${requestScope.user.username }
+<br><br>
+
+request user: ${requestScope.user }
+<br><br>
+
+session user: ${sessionScope.user }
+<br><br>
+
+request school: ${requestScope.school }
+<br><br>
+
+session school: ${sessionScope.school }
+<br><br>
+
+<br><br>
 </body>
 </html>
