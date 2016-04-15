@@ -7,11 +7,13 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
+	<context:property-placeholder location="classpath:resources.properties"/>
+
 	<!-- 配置自定扫描的包 -->
-	<context:component-scan base-package="cn.zsy.mars"></context:component-scan>
+	<!-- 开启controller注解支持 -->
+	<context:component-scan base-package="cn.zsy.mars.controller"></context:component-scan>
 
 
-	<import resource="classpath*:datasorce-bean.xml"/>
 
 	<!-- 配置视图解析器: 如何把 handler 方法返回值解析为实际的物理视图 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
