@@ -20,6 +20,12 @@
 		<property name="prefix" value="/WEB-INF/views/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-	
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/springmvc/*"/>
+			<bean class="cn.zsy.mars.interceptors.SpringMVCInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>
