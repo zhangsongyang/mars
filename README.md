@@ -1,2 +1,2 @@
 # mars
-spring + spring MVC
+spring + spring MVC + mybatis
