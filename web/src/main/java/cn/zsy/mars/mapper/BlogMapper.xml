@@ -43,6 +43,21 @@
         <![CDATA[select * from Blog where name = #{name} and old = #{old}]]>
     </select>
 
+    <select id="selectBlog" parameterType="cn.zsy.mars.entity.Blog" resultType="cn.zsy.mars.entity.Blog">
+        select * from Blog
+        <where>
+            <if test="blog.id > 0">
+                and id = #{blog.id}
+            </if>
+            <if test="blog.name != null">
+                and name = #{blog.name}
+            </if>
+            <if test="blog.old != null">
+                and old = #{blog.old}
+            </if>
+        </where>
+    </select>
+
     <select id="selectBlogByName" resultType="cn.zsy.mars.entity.Blog">
         <![CDATA[select * from Blog where name = #{vo.name}]]>
     </select>

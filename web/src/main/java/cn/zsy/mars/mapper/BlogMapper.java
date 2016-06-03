@@ -20,6 +20,8 @@ public interface BlogMapper {
 
     List<Blog> selectBlogByNameAndOld(Blog blog);
 
+    List<Blog> selectBlog(@Param("blog") Blog blog);
+
     List<Blog> selectBlogByName(@Param("vo") Blog blog);
 
     boolean insertBlog(Blog blog);
