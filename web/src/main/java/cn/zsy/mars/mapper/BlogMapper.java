@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public interface BlogMapper {
+public interface BlogMapper extends MyBatisMapper {
 
     Blog selectBlogById(int id);
 
