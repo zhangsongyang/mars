@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zsy.mars.mapper.LongMarchMapper" >
+
+    <sql id="TableName">
+        <![CDATA[activity_long_march_comment activityLongMarchComment]]>
+    </sql>
+
+    <!-- 显示的记录对应的列-->
+    <sql id="columns" >
+        <![CDATA[activityLongMarchComment.id as id, activityLongMarchComment.user_id as userId, activityLongMarchComment.user_type as userType, activityLongMarchComment.area_abb as areaAbb, activityLongMarchComment.create_time as createTime, activityLongMarchComment.content as content]]>
+    </sql>
+
+    <!-- 列表对应的查询条件组合  -->
+    <sql id="queryOptions">
+        <where>
+            <if test="userId>=0"> AND activityLongMarchComment.user_id = #{userId}</if>
+            <if test="userType>=0"> AND activityLongMarchComment.user_type = #{userType}</if>
+            <if test="areaAbb!=null"> AND activityLongMarchComment.area_abb = #{areaAbb}</if>
+            <if test="createTime1!=null"> AND activityLongMarchComment.create_time &gt; #{createTime1}</if><if test="createTime2!=null"> AND activityLongMarchComment.create_time &lt; #{createTime2}</if>
+            <if test="id>=0"> AND activityLongMarchComment.id = #{id}</if>
+        </where>
+    </sql>
+
+    <!-- 列表查询对应的排序选项  -->
+    <sql id="orderControl">
+        <if test="orderList!=null">
+            <trim prefix="ORDER BY" prefixOverrides=",">
+                <foreach collection="orderList" item="order" open=""  separator="," close="" >
+                    <choose>
+                        <when test="order.columnName=='userId'"> activityLongMarchComment.user_id ${order.type} </when>
+                        <when test="order.columnName=='userType'"> activityLongMarchComment.user_type ${order.type} </when>
+                        <when test="order.columnName=='areaAbb'"> activityLongMarchComment.area_abb ${order.type} </when>
+                        <when test="order.columnName=='createTime'"> activityLongMarchComment.create_time ${order.type} </when>
+                        <when test="order.columnName=='id'"> activityLongMarchComment.id ${order.type} </when>
+                    </choose>
+                </foreach>
+            </trim>
+        </if>
+    </sql>
+
+    <select id="count" resultType="int">
+        SELECT count(1) num
+        FROM  <include refid="TableName"/>
+        <include refid="queryOptions"/>
+    </select>
+
+    <select id="query" resultType="cn.zsy.mars.entity.LongMarchEntity">
+        SELECT <include refid="columns"/>
+        FROM <include refid="TableName"/>
+        <include refid="queryOptions"/>
+        <include refid="orderControl"/>
+    </select>
+
+    <select id="queryPage" resultType="cn.zsy.mars.entity.LongMarchEntity">
+        SELECT * FROM (
+        SELECT A.*, ROWNUM RN FROM (
+        SELECT <include refid="columns"/>
+        FROM <include refid="TableName"/>
+        ORDER BY activityLongMarchComment.create_time DESC) A
+        ) WHERE RN BETWEEN 1 AND 5
+    </select>
+
+    <!-- 新增记录 oracle-->
+    <insert id="insert" useGeneratedKeys="false" >
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="BEFORE">
+            <![CDATA[ SELECT activity_march_comment_seq.nextval AS id FROM DUAL  ]]>
+        </selectKey>
+        INSERT INTO activity_long_march_comment (user_id, user_type, area_abb, create_time, content, id)
+        VALUES(#{userId,jdbcType=NUMERIC}, #{userType,jdbcType=NUMERIC}, #{areaAbb,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{content,jdbcType=VARCHAR}, #{id,jdbcType=NUMERIC})
+    </insert>
+
+
+    <!-- 插入数据 mysql -->
+    <insert id="insertMysql" parameterType="cn.zsy.mars.entity.LongMarchEntity" useGeneratedKeys="true" keyProperty="id">
+        <![CDATA[ INSERT INTO activity_long_march_comment (user_id, user_type, area_abb, create_time, content)
+        VALUES(#{userId}, #{userType}, #{areaAbb}, #{createTime}, #{content})]]>
+    </insert>
+
+
+    <!-- 更新记录 -->
+    <update id="update" >
+        UPDATE activity_long_march_comment
+        <set>
+            <if test="userId>=0"> user_id=#{userId,jdbcType=NUMERIC},</if>
+            <if test="userType>=0"> user_type=#{userType,jdbcType=NUMERIC},</if>
+            <if test="areaAbb!=null"> area_abb=#{areaAbb,jdbcType=VARCHAR},</if>
+            <if test="createTime!=null"> create_time=#{createTime,jdbcType=TIMESTAMP},</if>
+            <if test="content!=null"> content=#{content,jdbcType=VARCHAR},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+
+    <!-- 删除记录 -->
+    <delete id="delete">
+        DELETE FROM activity_long_march_comment
+        WHERE ID in
+        <foreach collection="ids" item="id" open="("  separator="," close=")" >
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
