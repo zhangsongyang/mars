@@ -1,5 +1,7 @@
 package cn.zsy.mars.entity;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -47,11 +49,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", userAge=" + userAge +
-                ", userAddress='" + userAddress + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

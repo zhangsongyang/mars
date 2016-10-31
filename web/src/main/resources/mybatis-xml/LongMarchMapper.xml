@@ -54,6 +54,7 @@
         <include refid="orderControl"/>
     </select>
 
+    <!-- 查询记录 oracle-->
     <select id="queryPage" resultType="cn.zsy.mars.entity.LongMarchEntity">
         SELECT * FROM (
         SELECT A.*, ROWNUM RN FROM (

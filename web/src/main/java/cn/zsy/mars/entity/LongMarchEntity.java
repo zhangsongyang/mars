@@ -2,6 +2,8 @@ package cn.zsy.mars.entity;
 
 
 import cn.zsy.mars.utils.OrderItem;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -92,4 +94,10 @@ public class LongMarchEntity {
     public void setOrderList(List<OrderItem> orderList) {
         this.orderList = orderList;
     }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
+
 }

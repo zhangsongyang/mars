@@ -1,5 +1,8 @@
 package cn.zsy.mars.entity;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 public class User {
 	
 	private Integer id;
@@ -62,9 +65,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password
-				+ ", email=" + email + ", age=" + age + ", address=" + address
-				+ "]";
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 	
 //	@Override

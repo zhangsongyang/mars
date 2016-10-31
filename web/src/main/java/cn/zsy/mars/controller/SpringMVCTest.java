@@ -227,7 +227,7 @@ public class SpringMVCTest {
         return SUCCESS;
     }
 
-    @RequestMapping(value = "/testRest/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/testRest/{id}", method = {RequestMethod.GET, RequestMethod.POST})
     public String testRest(@PathVariable Integer id) {
         System.out.println("testRest GET: " + id);
         return SUCCESS;

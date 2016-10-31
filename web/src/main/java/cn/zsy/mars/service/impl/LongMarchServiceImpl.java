@@ -23,26 +23,32 @@ public class LongMarchServiceImpl implements LongMarchService {
 
     @Override
     public List<LongMarchEntity> query(LongMarchEntity longMarchEntity) throws Exception {
-        return null;
+        List<LongMarchEntity> longMarchEntityList = longMarchRepository.query(longMarchEntity);
+        return longMarchEntityList;
     }
 
     @Override
-    public List<LongMarchEntity> queryPage() throws Exception {
-        return null;
+    public List<LongMarchEntity> queryPage(LongMarchEntity longMarchEntity) throws Exception {
+        return longMarchRepository.queryPage(longMarchEntity);
     }
 
     @Override
-    public void insert(LongMarchEntity longMarchEntity) throws Exception {
+    public int insert(LongMarchEntity longMarchEntity) throws Exception {
+        return longMarchRepository.insert(longMarchEntity);
+    }
 
+    @Override
+    public int insertMySQL(LongMarchEntity longMarchEntity) throws Exception {
+        return longMarchRepository.insertMySQL(longMarchEntity);
     }
 
     @Override
     public void update(LongMarchEntity longMarchEntity) throws Exception {
-
+        longMarchRepository.update(longMarchEntity);
     }
 
     @Override
     public void delete(List<Long> ids) throws Exception {
-
+        longMarchRepository.delete(ids);
     }
 }

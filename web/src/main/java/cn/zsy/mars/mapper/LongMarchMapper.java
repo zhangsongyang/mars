@@ -1,6 +1,7 @@
 package cn.zsy.mars.mapper;
 
 import cn.zsy.mars.entity.LongMarchEntity;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -24,14 +25,23 @@ public interface LongMarchMapper extends MyBatisMapper {
      * @return
      * @throws Exception
      */
-    List<LongMarchEntity> queryPage() throws Exception;
+    List<LongMarchEntity> queryPage(LongMarchEntity longMarchEntity) throws Exception;
 
     /**
-     * 增加
+     * 增加Oracle
      *
      * @param longMarchEntity
      */
-    void insert(LongMarchEntity longMarchEntity) throws Exception;
+    int insert(LongMarchEntity longMarchEntity) throws Exception;
+
+    /**
+     * 增加Mysql
+     *
+     * @param longMarchEntity
+     * @return
+     * @throws Exception
+     */
+    int insertMysql(LongMarchEntity longMarchEntity) throws Exception;
 
     /**
      * 修改
@@ -45,6 +55,6 @@ public interface LongMarchMapper extends MyBatisMapper {
      *
      * @param ids
      */
-    void delete(List<Long> ids) throws Exception;
+    void delete(@Param("ids") List<Long> ids) throws Exception;
 
 }

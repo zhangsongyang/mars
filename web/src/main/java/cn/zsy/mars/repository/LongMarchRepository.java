@@ -23,14 +23,22 @@ public interface LongMarchRepository {
      * @return
      * @throws Exception
      */
-    List<LongMarchEntity> queryPage() throws Exception;
+    List<LongMarchEntity> queryPage(LongMarchEntity longMarchEntity) throws Exception;
 
     /**
-     * 增加
+     * 增加 oracle
      *
      * @param longMarchEntity
      */
-    void insert(LongMarchEntity longMarchEntity) throws Exception;
+    int insert(LongMarchEntity longMarchEntity) throws Exception;
+
+    /**
+     * 增加 mysql
+     * @param longMarchEntity
+     * @return
+     * @throws Exception
+     */
+    int insertMySQL(LongMarchEntity longMarchEntity) throws Exception;
 
     /**
      * 修改
