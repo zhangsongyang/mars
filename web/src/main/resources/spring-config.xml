@@ -83,4 +83,6 @@
               <property name="dataSource" ref="dataSource"/>
        </bean>
 
+       <import resource="classpath:spring-data-redis.xml"/>
+
 </beans>
