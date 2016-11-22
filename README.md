@@ -1,2 +1,2 @@
 # mars
-spring + spring MVC + mybatis
+`spring` + `spring MVC` + `mybatis`
