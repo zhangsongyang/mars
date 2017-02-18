@@ -25,11 +25,13 @@
         <jstl.version>1.2</jstl.version>
         <standard.version>1.1.2</standard.version>
 
-        <spring.version>4.3.3.RELEASE</spring.version>
+        <spring.version>4.3.4.RELEASE</spring.version>
         <spring-data-redis.version>1.7.5.RELEASE</spring-data-redis.version>
-        <slf4j.version>1.7.18</slf4j.version>
+        <slf4j.version>1.7.21</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
-        <aspectj.version>1.8.8</aspectj.version>
+        <aspectj.version>1.8.9</aspectj.version>
+
+        <fastjson.version>1.2.21</fastjson.version>
     </properties>
 
 
@@ -81,6 +83,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
         </dependency>
@@ -102,6 +109,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <dependency>
@@ -144,6 +156,13 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
+        </dependency>
+
+        <!-- Fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
 
     </dependencies>
