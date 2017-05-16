@@ -9,6 +9,7 @@ public class TestSlfFj {
     private static final Logger logger = LoggerFactory.getLogger(TestSlfFj.class);
 
     public static void main(String[] args) {
+        logger.error("asdf");
         logger.debug("This is debug message");
         logger.info("This is info message");
         logger.warn("This is warn message");
