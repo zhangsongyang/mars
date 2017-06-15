@@ -36,6 +36,12 @@ request school: ${requestScope.school }
 session school: ${sessionScope.school }
 <br><br>
 
+<fmt:message key="i18n.username"></fmt:message>
+<br><br>
+
+<fmt:message key="i18n.password"></fmt:message>
+<br><br>
+
 <br><br>
 </body>
 </html>
