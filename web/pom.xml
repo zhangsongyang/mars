@@ -22,6 +22,8 @@
         <mybatis.version>3.3.1</mybatis.version>
         <mybatis.spring.version>1.2.5</mybatis.spring.version>
         <jedis.version>2.8.0</jedis.version>
+
+        <maven.test.skip>true</maven.test.skip>
     </properties>
     <build>
         <finalName>mars-web</finalName>
@@ -44,6 +46,14 @@
                     <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20</version>
+                <configuration>
+                    <skipTests>${maven.test.skip}</skipTests>
                 </configuration>
             </plugin>
         </plugins>
@@ -74,10 +84,10 @@
                 <db.name>hibernate01</db.name>
                 <connection.driver_class>com.mysql.jdbc.Driver</connection.driver_class>
                 <connection.url>
-                    <![CDATA[jdbc:mysql://192.168.28.129:3306/${db.name}?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]>
+                    <![CDATA[jdbc:mysql://127.0.0.1:3306/${db.name}?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]>
                 </connection.url>
-                <connection.username>xsh</connection.username>
-                <connection.password>zsy</connection.password>
+                <connection.username>root</connection.username>
+                <connection.password>root</connection.password>
             </properties>
         </profile>
     </profiles>
@@ -133,6 +143,18 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>${jedis.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.4.1.Final</version>
         </dependency>
 
     </dependencies>

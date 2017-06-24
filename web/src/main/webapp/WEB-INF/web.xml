@@ -21,7 +21,7 @@
     <!-- Spring配置文件结束 -->
 
     <!--
-        配置 org.springframework.web.filter.HiddenHttpMethodFilter: 可以把 POST 请求转为 DELETE 或 POST 请求
+        配置 org.springframework.web.filter.HiddenHttpMethodFilter: 可以把 POST 请求转为 DELETE 或 PUT 请求
     -->
     <filter>
         <filter-name>HiddenHttpMethodFilter</filter-name>

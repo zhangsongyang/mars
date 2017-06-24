@@ -1,7 +1,10 @@
 package cn.zsy.mars.controller;
 
 
+import cn.zsy.mars.entity.Employee;
 import cn.zsy.mars.entity.User;
+import cn.zsy.mars.repository.EmployeeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,6 +24,16 @@ import java.util.Map;
 public class SpringMVCTest {
 
     private static final String SUCCESS = "success";
+
+    @Autowired
+    private EmployeeRepository employeeDao;
+
+    @RequestMapping("/testConversionServiceConverer")
+    public String testConverter(@RequestParam("employee") Employee employee){
+        System.out.println("save: " + employee);
+        employeeDao.save(employee);
+        return "redirect:/emps";
+    }
 
     @RequestMapping("/testViewAndViewResolver")
     public String testViewAndViewResolver(){
@@ -207,8 +220,11 @@ public class SpringMVCTest {
 
 
     /**
-     * Rest 风格的 URL. 以 CRUD 为例: 新增: /order POST 修改: /order/1 PUT update?id=1 获取:
-     * /order/1 GET get?id=1 删除: /order/1 DELETE delete?id=1
+     * Rest 风格的 URL. 以 CRUD 为例:
+     * 新增: /order POST
+     * 修改: /order/1 PUT update?id=1
+     * 获取: /order/1 GET get?id=1
+     * 删除: /order/1 DELETE delete?id=1
      * <p>
      * 如何发送 PUT 请求和 DELETE 请求呢 ? 1. 需要配置 HiddenHttpMethodFilter 2. 需要发送 POST 请求
      * 3. 需要在发送 POST 请求时携带一个 name="_method" 的隐藏域, 值为 DELETE 或 PUT

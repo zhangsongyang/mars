@@ -1,15 +1,12 @@
 package cn.zsy.mars.controller;
 
 import cn.zsy.mars.service.BaseService;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.io.File;
 
 @Controller
 public class HelloWord {
@@ -34,11 +31,11 @@ public class HelloWord {
     @RequestMapping("/helloword")
     public String hello() {
         System.out.println("test.......");
-        baseService.saveService();
+//        baseService.saveService();
         System.out.println("hello word!");
-        String str = stringRedisTemplate.opsForValue().get("zhangsongyang");
-        logger.info(str);
-        return "success";
+//        String str = stringRedisTemplate.opsForValue().get("zhangsongyang");
+//        logger.info(str);
+        return "views/success";
     }
 
 

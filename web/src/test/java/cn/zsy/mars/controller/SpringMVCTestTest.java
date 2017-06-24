@@ -1,14 +1,10 @@
 package cn.zsy.mars.controller;
 
 import cn.zsy.mars.entity.Person;
-import cn.zsy.mars.utils.SpringUtils;
 import cn.zsy.mars.utils.TestSlfFj;
 import org.junit.Test;
-import org.omg.CORBA.Object;
 
 import java.lang.reflect.Field;
-
-import static org.junit.Assert.*;
 
 
 public class SpringMVCTestTest {
