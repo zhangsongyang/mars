@@ -65,7 +65,6 @@ public class BaseRepositoryImpl implements BaseRepository {
         Blog blog = new Blog();
 //        blog.setId(1);
         blog.setOld("27");
-//        blog.setName("谢世会");
         List<Blog> blogsA = blogMapper.selectBlog(blog);
         System.out.println(blogsA.toString());
     }
