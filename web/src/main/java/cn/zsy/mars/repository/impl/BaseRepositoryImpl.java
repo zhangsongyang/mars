@@ -42,7 +42,7 @@ public class BaseRepositoryImpl implements BaseRepository {
         System.out.println("----blogs1: " + blogs1.toString() + "\tsize: " + blogs1.size());
         System.out.println("-----------------------------------");
 //        Blog blog2 = new Blog();
-//        blog2.setName("谢世会");
+//        blog2.setName("asdf");
 //        List<Blog> blogs2 = blogMapper.selectBlogByName(blog2);
 //        System.out.println("----blogs2: " + blogs2.toString() + "\tsize: " + blogs2.size());
 //        System.out.println("-----------------------------------");
